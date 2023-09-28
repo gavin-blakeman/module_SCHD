@@ -1,0 +1,4 @@
+#ifndef VIEWPORTFOLIO_H
+#define VIEWPORTFOLIO_H
+
+#endif // VIEWPORTFOLIO_H

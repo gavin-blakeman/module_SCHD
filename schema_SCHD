@@ -1,0 +1,14 @@
+﻿SCHEMA msmERP = "engineeringShop"
+  TABLE TBL_IMM_ARCHIVE = "core_audit", ARIA, READ CREATE, TID = OT_CORE_AUDIT
+    COLUMN ID(U32) = "ID", AI
+    COLUMN TableName(STRING50) = "TableName"
+    COLUMN FieldName(STRING50) = "FieldName"
+    COLUMN RecordID(U32) = "RecordID"
+    COLUMN OldValue(STRING1024)
+    COLUMN NewValue(STRING1024)
+    COLUMN UserID(U32)
+    COLUMN CreateDate(TIMESTAMP), current_timestamp()
+
+    PRIMARY(ID)
+    INDEX indx_tableName(TableName)
+    INDEX indx_record(RecordID)
