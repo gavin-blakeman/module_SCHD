@@ -1,12 +1,12 @@
 ﻿//**********************************************************************************************************************************
 //
 // PROJECT:             msmERP
-// SUBSYSTEM:           Module: Investment Management
-// FILE:                priceFetchManager.h
+// SUBSYSTEM:           msmERP: Module Scheduler
+// FILE:                tbl_schd_workflowStatus.h
 // LANGUAGE:						C++
 // TARGET OS:           LINUX
 // LIBRARY DEPENDANCE:	None.
-// NAMESPACE:
+// NAMESPACE:           N/A
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
@@ -24,53 +24,15 @@
 //                      You should have received a copy of the GNU General Public License along with msmERP.  If not,
 //                      see <http://www.gnu.org/licenses/>.
 //
-// OVERVIEW:
+// OVERVIEW:						Classes for interating with the financial years table.
 //
-// HISTORY:             2023-09-26/GGB - File created.
+// HISTORY:             2023-09-28/GGB - File created
 //
 //**********************************************************************************************************************************
 
-#ifndef PRICEFETCHMANAGER_H
-#define PRICEFETCHMANAGER_H
+#include "include/database/tables/tbl_SCHD_workflowStatus.h"
 
-  // Standard C++ library header files
-
-#include <filesystem>
-#include <functional>
-#include <map>
-#include <memory>
-#include <tuple>
-#include <string>
-#include <utility>
-#include <vector>
-
-  // Miscellaneous library header files
-
-  // msmERP header files
-
-#include "include/pluginInterface/interfacePriceFetch.h"
-
-namespace IMM::priceFetch
+namespace TBL_SCHD_WORKFLOWSTATUS
 {
-  class CPriceFetchManager
-  {
-  public:
-    static void loadPriceFetchPlugins(GCL::plugin::CPluginManager &pluginManager, GCL::CReaderSections &configReader);
-    static void registerPlugin(std::string const &, priceFetch_fn *);
-
-    static void priceFetch(std::string const &, callback_fn *, securityPrices_t *);
-
-  private:
-    using pluginMap_t = std::map<std::string, priceFetch_fn *>;
-
-    CPriceFetchManager() {}
-    CPriceFetchManager(CPriceFetchManager const &) = delete;              // Cannot copy
-    CPriceFetchManager(CPriceFetchManager &&) = delete;                   // Cannot move
-    CPriceFetchManager &operator =(CPriceFetchManager const &) = delete;  // Cannot copy.
-
-    static pluginMap_t pluginMap;
-  };
-
+  std::string TABLE = "SCHD_workflowStatus";
 }
-
-#endif // PRICEFETCHMANAGER_H

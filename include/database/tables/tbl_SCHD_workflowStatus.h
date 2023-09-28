@@ -1,12 +1,12 @@
 ﻿//**********************************************************************************************************************************
 //
 // PROJECT:             msmERP
-// SUBSYSTEM:           Module: Investement Management
-// FILE:                tbl_imm_workflowStatus.cpp
+// SUBSYSTEM:           msmERP: Module Scheduler
+// FILE:                tbl_schd_workflowStatus.h
 // LANGUAGE:						C++
 // TARGET OS:           LINUX
 // LIBRARY DEPENDANCE:	None.
-// NAMESPACE:           database
+// NAMESPACE:           N/A
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
@@ -24,15 +24,26 @@
 //                      You should have received a copy of the GNU General Public License along with msmERP.  If not,
 //                      see <http://www.gnu.org/licenses/>.
 //
-// OVERVIEW:						Classes for interating with the IMM transaction lines table.
+// OVERVIEW:						Classes for interating with the financial years table.
 //
-// HISTORY:             2023-08-31/GGB - File created
+// HISTORY:             2023-09-28/GGB - File created
 //
 //**********************************************************************************************************************************
 
-#include "include/database/tables/tbl_imm_workflowStatus.h"
+#ifndef TBL_SCHD_WORKFLOWSTATUS_H
+#define TBL_SCHD_WORKFLOWSTATUS_H
 
-namespace TBL_IMM_WORKFLOWSTATUS
+  // Standard C++ library
+
+#include <string>
+
+  // msmERP header files
+
+#include "include/core/typeDefinitions.h"
+
+namespace TBL_SCHD_WORKFLOWSTATUS
 {
-  std::string TABLE = "IMM_workflowStatus";
+  extern std::string TABLE;
 }
+
+#endif // TBL_SCHD_WORKFLOWSTATUS_H

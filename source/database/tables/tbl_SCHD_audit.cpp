@@ -1,8 +1,8 @@
 ﻿//**********************************************************************************************************************************
 //
 // PROJECT:             msmERP
-// SUBSYSTEM:           Module: Investment Management
-// FILE:                processBusinessTransactions.h
+// SUBSYSTEM:           msmERP: Module Scheduler
+// FILE:                tbl_schd_audit.cpp
 // LANGUAGE:						C++
 // TARGET OS:           LINUX
 // LIBRARY DEPENDANCE:	None.
@@ -24,24 +24,15 @@
 //                      You should have received a copy of the GNU General Public License along with msmERP.  If not,
 //                      see <http://www.gnu.org/licenses/>.
 //
-// OVERVIEW:
+// OVERVIEW:						Classes for interating with the financial years table.
 //
-// HISTORY:             2023-08-31/GGB - File created.
+// HISTORY:             2023-09-28/GGB - File created
 //
 //**********************************************************************************************************************************
 
-#ifndef PROCESSBUSINESSTRANSACTIONS_H
-#define PROCESSBUSINESSTRANSACTIONS_H
+#include "include/database/tables/tbl_SCHD_audit.h"
 
-  // msmERP header files
-
-#include "include/database/views/viewTransaction.h"
-
-class CApplication;
-
-namespace IMM
+namespace TBL_SCHD_AUDIT
 {
-  void postTransaction(CApplication &, views::CViewTransaction &);
+  std::string TABLE = "SCHD_audit";
 }
-
-#endif // PROCESSBUSINESSTRANSACTIONS_H

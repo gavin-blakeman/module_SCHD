@@ -1,12 +1,12 @@
-﻿//**********************************************************************************************************************************
+//**********************************************************************************************************************************
 //
 // PROJECT:             msmERP
-// SUBSYSTEM:           Module: Investement Management
-// FILE:                tbl_imm_audit
+// SUBSYSTEM:           msmERP: Module Scheduler
+// FILE:                tbl_schd_taskTypes.h
 // LANGUAGE:						C++
 // TARGET OS:           LINUX
 // LIBRARY DEPENDANCE:	None.
-// NAMESPACE:           database
+// NAMESPACE:           N/A
 // AUTHOR:							Gavin Blakeman.
 // LICENSE:             GPLv2
 //
@@ -24,26 +24,42 @@
 //                      You should have received a copy of the GNU General Public License along with msmERP.  If not,
 //                      see <http://www.gnu.org/licenses/>.
 //
-// OVERVIEW:
+// OVERVIEW:						Classes for interating with the financial years table.
 //
-// HISTORY:             2023-08-31/GGB - File created
+// HISTORY:             2023-09-28/GGB - File created
 //
 //**********************************************************************************************************************************
 
-#ifndef TBL_IMM_AUDIT_H
-#define TBL_IMM_AUDIT_H
+#ifndef TBL_SCHD_TASKTYPES_H
+#define TBL_SCHD_TASKTYPES_H
 
-  // Standard C++ header files
+  // Standard C++ library
 
+#include <map>
+#include <set>
 #include <string>
 
   // msmERP header files
 
-#include "include/database/tables/core/tbl_audit.h"
+#include "include/dbe.h"
+#include "include/core/typeDefinitions.h"
+#include "include/database/models/modelComboBox.h"
 
-namespace TBL_IMM_AUDIT
+class CApplication;
+
+namespace database::tbl_schd_taskTypes
 {
-  extern std::string TABLE;
+  enum taskType_t : tindex_t
+  {
+    TT_NONE = 0,
+    TT_SCRIPT = 1,
+    TT_PLUGIN = 2,
+  };
+
+
+  void createModel(CApplication &, models::CModelComboBox<tindex_t> &model);
+  std::string const &shortText(CApplication &, taskType_t);
 }
 
-#endif // TBL_IMM_AUDIT_H
+
+#endif // TBL_SCHD_TASKTYPES_H

@@ -1,8 +1,8 @@
 ﻿//**********************************************************************************************************************************
 //
 // PROJECT:             msmERP
-// SUBSYSTEM:           Module: Investement Management
-// FILE:                module_IMM.cpp
+// SUBSYSTEM:           Module: Scheduler
+// FILE:                module_SCHD.cpp
 // LANGUAGE:						C++
 // TARGET OS:           LINUX
 // LIBRARY DEPENDANCE:	None.
@@ -26,7 +26,7 @@
 //
 // OVERVIEW:
 //
-// HISTORY:             2023-07-20/GGB - File created
+// HISTORY:             2023-07-28/GGB - File created
 //
 //**********************************************************************************************************************************
 
@@ -42,8 +42,6 @@
 #include "include/configSettings.h"
 #include "include/database/tables/core/tbl_businessTransactions.h"
 #include "include/database/tables/core/tbl_objectTypes.h"
-#include "include/priceFetchManager.h"
-#include "include/priceUploadManager.h"
 
 namespace pluginInterface
 {

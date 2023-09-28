@@ -1,8 +1,8 @@
 ﻿//**********************************************************************************************************************************
 //
 // PROJECT:             msmERP
-// FILE:                tbl_imm_transactionTypes
-// SUBSYSTEM:           Module: Investment Management
+// SUBSYSTEM:           msmERP: Module Scheduler
+// FILE:                tbl_schd_taskTypes.cpp
 // LANGUAGE:						C++
 // TARGET OS:           LINUX
 // LIBRARY DEPENDANCE:	None.
@@ -26,11 +26,11 @@
 //
 // OVERVIEW:						Classes for interating with the financial years table.
 //
-// HISTORY:             2023-07-25/GGB - File created
+// HISTORY:             2023-09-28/GGB - File created
 //
 //**********************************************************************************************************************************
 
-#include "include/database/tables/tbl_imm_transactionTypes.h"
+#include "include/database/tables/tbl_SCHD_taskTypes.h"
 
   // Wt framework header files
 
@@ -45,24 +45,23 @@
 #include "include/dbe.h"
 #include "include/database/tables/core/tbl_statusCodes.h"
 
-namespace database::tbl_imm_transactionTypes
+namespace database::tbl_schd_taskTypes
 {
-  using transactionsText_t = std::map<transactionType_t, std::string>;
+  using taskText_t = std::map<taskType_t, std::string>;
 
-  static transactionsText_t transactionsText =
+  static taskText_t transactionsText =
   {
     { TT_NONE, "None" },
-    { TT_BUY, "Buy" },
-    { TT_SELL, "Sell" },
-    { TT_DIVIDEND, "Dividend" },
-    { TT_INTEREST, "Interest" },
+    { TT_SCRIPT, "Script" },
+    { TT_PLUGIN, "Plugin" },
+
   };
 
-  /// @brief      Builds a model for the transactions types.
+  /// @brief      Builds a model for the task types.
   /// @param[in]  unused.
   /// @param[out] model: The model to build.
   /// @throws
-  /// @version    2023-07-25/GGB - Function created.
+  /// @version    2023-09-28/GGB - Function created.
 
   void createModel(CApplication &, models::CModelComboBox<tindex_t> &model)
   {
@@ -80,11 +79,11 @@ namespace database::tbl_imm_transactionTypes
   /// @param[in]  bt: The business transaction code.
   /// @returns    Human readable string
   /// @throws
-  /// @version    2022-01-11/GGB - Function created.
+  /// @version    2023-09-28/GGB - Function created.
 
-  std::string const &shortText(CApplication &, transactionType_t tt)
+  std::string const &shortText(CApplication &, taskType_t tt)
   {
-    RUNTIME_ASSERT(transactionsText.contains(tt), "Unknown code for IMM transaction types");
+    RUNTIME_ASSERT(transactionsText.contains(tt), "Unknown code for Scheduler Task Types");
 
     return transactionsText[tt];
   }

@@ -1,8 +1,8 @@
 ﻿//**********************************************************************************************************************************
 //
 // PROJECT:             msmERP
-// FILE:                tbl_imm_transactionTypes
-// SUBSYSTEM:           Module: Investment Management
+// SUBSYSTEM:           msmERP: Module Scheduler
+// FILE:                tbl_schd_audit.h
 // LANGUAGE:						C++
 // TARGET OS:           LINUX
 // LIBRARY DEPENDANCE:	None.
@@ -26,42 +26,24 @@
 //
 // OVERVIEW:						Classes for interating with the financial years table.
 //
-// HISTORY:             2023-07-25/GGB - File created
+// HISTORY:             2023-09-28/GGB - File created
 //
 //**********************************************************************************************************************************
 
-#ifndef TBL_IMM_TRANSACTIONTYPES_H
-#define TBL_IMM_TRANSACTIONTYPES_H
+#ifndef TBL_SCHD_AUDIT_H
+#define TBL_SCHD_AUDIT_H
 
-  // Standard C++ library
+  // Standard C++ header files
 
-#include <map>
-#include <set>
 #include <string>
 
   // msmERP header files
 
-#include "include/dbe.h"
-#include "include/core/typeDefinitions.h"
-#include "include/database/models/modelComboBox.h"
+#include "include/database/tables/core/tbl_audit.h"
 
-class CApplication;
-
-namespace database::tbl_imm_transactionTypes
+namespace TBL_SCHD_AUDIT
 {
-  enum transactionType_t : tindex_t
-  {
-    TT_NONE = 0,
-    TT_BUY = 1,
-    TT_SELL = 2,
-    TT_DIVIDEND = 3,
-    TT_INTEREST = 4,
-  };
-
-
-  void createModel(CApplication &, models::CModelComboBox<tindex_t> &model);
-  std::string const &shortText(CApplication &, transactionType_t);
+  extern std::string TABLE;
 }
 
-
-#endif // TBL_IMM_TRANSACTIONTYPES_H
+#endif // TBL_SCHD_AUDIT_H

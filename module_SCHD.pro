@@ -1,8 +1,8 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 #
 # PROJECT:            msmERP
-# FILE:								module_organsiation.pro
-# SUBSYSTEM:          Project File - O
+# SUBSYSTEM:          msmERP - Scheduler
+# FILE:								module_SCJD.pro
 # LANGUAGE:						C++
 # TARGET OS:          LINUX
 # LIBRARY DEPENDANCE:	None.
@@ -14,11 +14,11 @@
 #
 # OVERVIEW:						Project file for compiling the investment management module.
 #
-# HISTORY:            2023-07-18/GGB - File Created
+# HISTORY:            2023-09-28/GGB - File Created
 #
 #-----------------------------------------------------------------------------------------------------------------------------------
 
-TARGET = module_IMM
+TARGET = module_SCHD
 
 DESTDIR = ../../engineeringShop/modules
 
@@ -58,78 +58,20 @@ INCLUDEPATH +=  \
     "../../modules/module_FM"
 
 SOURCES += \
-  source/database/models/modelCostTypes.cpp \
-  source/database/models/modelExchanges.cpp \
-  source/database/models/modelPortfolio.cpp \
-  source/database/models/modelSecurities.cpp \
-  source/database/tables/tbl_imm_audit.cpp \
-  source/database/tables/tbl_imm_configuration.cpp \
-  source/database/tables/tbl_imm_costTypes.cpp \
-  source/database/tables/tbl_imm_customerTransactionLines.cpp \
-  source/database/tables/tbl_imm_customerTransactionType.cpp \
-  source/database/tables/tbl_imm_customerTransactions.cpp \
-  source/database/tables/tbl_imm_exchanges.cpp \
-  source/database/tables/tbl_imm_portfolio.cpp \
-  source/database/tables/tbl_imm_portfolioValue.cpp \
-  source/database/tables/tbl_imm_securities.cpp \
-  source/database/tables/tbl_imm_securityPrices.cpp \
-  source/database/tables/tbl_imm_securityTypes.cpp \
-  source/database/tables/tbl_imm_tradingLedger.cpp \
-  source/database/tables/tbl_imm_transactionLines.cpp \
-  source/database/tables/tbl_imm_transactionTypes.cpp \
-  source/database/tables/tbl_imm_transactions.cpp \
-  source/database/tables/tbl_imm_workflowStatus.cpp \
-  source/database/views/viewCostType.cpp \
-  source/database/views/viewExchange.cpp \
-  source/database/views/viewPortfolio.cpp \
-  source/database/views/viewSecurity.cpp \
-  source/database/views/viewTransaction.cpp \
-  source/database/views/viewTransactionLines.cpp \
-  source/database/views/view_imm_configuration.cpp \
-  source/database/views/view_imm_customerTransaction.cpp \
-  source/database/views/view_imm_customerTransactionLines.cpp \
-  source/module_IMM.cpp \
-  source/priceFetchManager.cpp \
-  source/priceUploadManager.cpp \
-  source/processBusinessTransactions.cpp
+  source/database/tables/tbl_SCHD_audit.cpp \
+  source/database/tables/tbl_SCHD_taskTypes.cpp \
+  source/database/tables/tbl_SCHD_workflowStatus.cpp \
+  source/module_SCHD.cpp \
+  source/taskScheduler.cpp
+
 
 
 HEADERS += \
-  include/database/models/modelCostTypes.h \
-  include/database/models/modelExchanges.h \
-  include/database/models/modelPortfolio.h \
-  include/database/models/modelSecurities.h \
-  include/database/tables/tbl_imm_audit.h \
-  include/database/tables/tbl_imm_customerTransactionLines.h \
-  include/database/tables/tbl_imm_customerTransactionType.h \
-  include/database/tables/tbl_imm_customerTransactions.h \
-  include/database/tables/tbl_imm_portfolioValue.h \
-  include/database/tables/tbl_imm_tradingLedger.h \
-  include/database/views/view_imm_customerTransaction.h \
-  include/database/views/view_imm_customerTransactionLines.h \
-  include/pluginInterface/interfacePriceFetch.h \
-  include/pluginInterface/interfacePriceUpload.h \
-  include/priceFetchManager.h \
-  include/priceUploadManager.h \
-  include/processBusinessTransactions.h \
-  include/database/tables/tbl_imm_configuration.h \
-  include/database/tables/tbl_imm_costTypes.h \
-  include/database/tables/tbl_imm_exchanges.h \
-  include/database/tables/tbl_imm_portfolio.h \
-  include/database/tables/tbl_imm_securities.h \
-  include/database/tables/tbl_imm_securityPrices.h \
-  include/database/tables/tbl_imm_securityTypes.h \
-  include/database/tables/tbl_imm_transactionLines.h \
-  include/database/tables/tbl_imm_transactionTypes.h \
-  include/database/tables/tbl_imm_transactions.h \
-  include/database/tables/tbl_imm_workflowStatus.h \
-  include/database/views/viewCostType.h \
-  include/database/views/viewExchange.h \
-  include/database/views/viewPortfolio.h \
-  include/database/views/viewSecurity.h \
-  include/database/views/viewTransaction.h \
-  include/database/views/viewTransactionLines.h \
-  include/database/views/view_imm_configuration.h
+  include/database/tables/tbl_SCHD_audit.h \
+  include/database/tables/tbl_SCHD_taskTypes.h \
+  include/database/tables/tbl_SCHD_workflowStatus.h \
+  include/taskScheduler.h
+
 
 
 
@@ -137,6 +79,5 @@ LIBS += -L../../GCL -lGCL
 
 DISTFILES += \
   module.version \
-  pluginTransaction.version \
-  schema_IMM
+  schema_SCHD
 
